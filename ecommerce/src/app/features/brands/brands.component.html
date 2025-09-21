@@ -1,0 +1,43 @@
+<div>
+  <p class="text-4xl text-green-500 text-center font-semibold mb-5 ">All Brands</p>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2" >
+    @for(item of brands;track $index){
+        <div class="border border-gray-300 bg-white rounded p-5 cursor-pointer hover:shadow-lg hover:shadow-gray-400 hover:transition duration-300" (click)="getid($index)">
+          <img [src]="item.image">
+          <p class="text-center">{{item.name}}</p>
+        </div>
+
+
+
+
+    }
+  </div>
+
+      @if(isclicked && index!==null){
+        <div class="  fixed inset-0 bg-black/70 flex justify-center items-center">
+          <div class=" bg-white w-md rounded ">
+            <div class="flex justify-center items-center ">
+              <p class=" text-green-500 text-3xl font-semibold">{{brands![index].name}}</p>
+              <img [src]="brands![index].image">
+            </div>
+            <div class="flex justify-center items-center">
+              <button class=" px-5 py-3 bg-red-500 cursor-pointer rounded active:scale-[98%]" (click)="clicked()">Close</button>
+            </div>
+            
+           
+          </div>
+        </div>
+
+      }
+
+
+      
+  
+
+
+
+
+</div>
+
+
+

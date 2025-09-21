@@ -1,0 +1,101 @@
+<div>
+  <h2 class="text-main text-4xl mb-4">Register Form</h2>
+  
+
+<form [formGroup]="registerForm" class=" mx-auto" (ngSubmit)="onsubmit()">
+  <div class="relative z-0 w-full mb-5 group">
+      <input formControlName='name'  type="text" [name]="'floating'+'name'" [id]="'floating'+'name'"   [class.!border-b-red-500]="nameController?.touched && nameController?.invalid" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder=" " />
+      <label [for]="'floating'+'name'"  [class.!text-red-500]="nameController?.touched && nameController?.invalid" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"><span class="capitalize">name</span></label>
+  </div>
+  @if(nameController?.touched && nameController?.invalid) {
+      <div  class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50">
+        @if(nameController?.getError('required')){
+          <p>Name is required</p>
+        }
+       @else if (nameController?.getError('minlength')) {
+          <p>Minimum length is 6 characters</p>
+
+       }
+      </div>
+
+  }
+    <div class="relative z-0 w-full mb-5 group">
+      <input formControlName='email'  type="email" [name]="'floating'+'email'" [id]="'floating'+'email'"  [class.!border-b-red-500]="emailController?.touched && emailController?.invalid"  class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder=" " />
+      <label [for]="'floating'+'email'"  [class.!text-red-500]="emailController?.touched && emailController?.invalid" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"><span class="capitalize">email</span></label>
+  </div>
+    @if(emailController?.touched && emailController?.invalid) {
+      <div  class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50">
+        @if(emailController?.getError('required')){
+          <p>Email is required</p>
+        }
+       @else if (emailController?.getError('email')) {
+          <p>Email is not valid</p>
+
+       }
+      </div>
+
+  }
+
+    <div class="relative z-0 w-full mb-5 group">
+      <input formControlName='password'  type="password" [name]="'floating'+'password'" [id]="'floating'+'password'"   [class.!border-b-red-500]="passwordController?.touched && passwordController?.invalid" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder=" " />
+      <label [for]="'floating'+'password'"  [class.!text-red-500]="passwordController?.touched && passwordController?.invalid" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"><span class="capitalize">password</span></label>
+  </div>
+    @if(passwordController?.touched && passwordController?.invalid) {
+      <div  class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50">
+        @if(passwordController?.getError('required')){
+          <p>Password is required</p>
+        }
+       @else if (passwordController?.getError('pattern')) {
+          <p>Password must start with a capital letter and be 6–11 characters long (letters and numbers only)</p>
+
+       }
+      </div>
+
+  }
+
+    <div class="relative z-0 w-full mb-5 group">
+      <input formControlName='rePassword'  type="password" [name]="'floating'+'rePassword'" [id]="'floating'+'rePassword'"  [class.!border-b-red-500]="repasswordController?.touched && repasswordController?.invalid" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder=" " />
+      <label [for]="'floating'+'rePassword'"  [class.!text-red-500]="repasswordController?.touched && repasswordController?.invalid" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"><span class="capitalize">repassword</span></label>
+  </div>
+  @if(repasswordController?.touched && (repasswordController?.invalid || registerForm.getError('noMatch'))) {
+      <div  class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50">
+        @if(repasswordController?.getError('required')){
+          <p>rePassword is required</p>
+        }
+       @else if (registerForm.getError('noMatch')) {
+          <p>Password doesnt match</p>
+
+       }
+      </div>
+
+  }
+
+    <div class="relative z-0 w-full mb-5 group">
+      <input formControlName='phone'  type="text" [name]="'floating'+'phone'" [id]="'floating'+'phone'"  [class.!border-b-red-500]="phoneController?.touched && phoneController?.invalid" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder=" " />
+      <label [for]="'floating'+'phone'"  [class.!text-red-500]="phoneController?.touched && phoneController?.invalid" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"><span class="capitalize">phone</span></label>
+  </div>
+   @if(phoneController?.touched && phoneController?.invalid) {
+      <div  class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50">
+        @if(phoneController?.getError('required')){
+          <p>Phone is required</p>
+        }
+       @else if (phoneController?.getError('pattern')) {
+          <p>Phone number must be 11 digits and must be Egptian number</p>
+
+       }
+      </div>
+
+  }
+
+
+  <button type="submit"   class="text-white bg-green-700 disabled:opacity-50 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+    @if(isLoading){
+      Loading...
+    }
+    @else{
+      Submit
+    }
+  </button>
+</form>
+
+</div>

@@ -1,0 +1,22 @@
+<div>
+  <p class="text-4xl text-green-500 text-center font-semibold mb-5 ">My WishList</p>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 group">
+    @for(product of wishList;track $index){
+        <div class="border border-gray-300 bg-white rounded p-5 cursor-pointer hover:shadow-lg hover:shadow-gray-400 hover:transition duration-300">
+          <img  class="h-100 object-cover object-center" [src]="product.imageCover">
+          <p class="text-green-500 text-sm">{{product.category.name}}</p>
+          <p class="mb-2 capitalize line-clamp-2" [title]="product.title">{{product.title}}</p>
+          <div class="flex justify-between">
+            <span>{{product.price}}EGP</span>
+            <span><i class="fa fa-star text-yellow-400" aria-hidden="true"></i><span class="text-gray-500">{{product.ratingsAverage}}</span></span>
+         </div>
+         <div class="flex justify-end">
+           <button class="cursor-pointer hover:text-green-600 transition-all duration-100 " (click)="removeproductfromwhishlist(product._id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+         </div>
+         <button  class="bg-green-500 py-2 rounded text-white w-full cursor-pointer translate-y-8 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 active:scale-[98%]" (click)="addProductToCart(product._id)" >Add To Cart</button>
+        </div>
+          
+  }
+  </div>
+
+</div>

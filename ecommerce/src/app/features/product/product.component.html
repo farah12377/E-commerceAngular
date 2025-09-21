@@ -1,0 +1,9 @@
+  <div class="mb-5">
+    <input type="search" [(ngModel)]="term"  id="search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Search" />
+  </div>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-3">
+  @for(product of products | filterlist:term ; track $index){
+    <app-product-card [product]="product"></app-product-card>
+  }
+</div>
